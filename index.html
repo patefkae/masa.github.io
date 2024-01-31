@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Greetings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: aqua;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://github.com/patefkae/test.github.io/blob/main/WhatsApp%20Image%202024-01-31%20at%2010.36.57_176aa97f.jpg?raw=true" alt="Birthday Cake Image" width="300" height="300">
+    <h1><font color="red">Happy Birthday! Masa</font></h1>
+    <h2><font color="brown">Today is your special day. May this day be filled with love, joy, and happiness.</font></h2>
+    <h2><font color="purple">Wishing you a wonderful year ahead. May your dreams come true and may you be surrounded by love and happiness.</font></h2>
+    
+    <script>
+        const today = new Date();
+        const birthday = new Date('[Your Birthday Date]');
+        const birthdayMessage = document.querySelector('p:nth-child(3)');
+
+        if (today.getMonth() === birthday.getMonth() && today.getDate() === birthday.getDate()) {
+            birthdayMessage.textContent = 'Happy Birthday!';
+        } else {
+            birthdayMessage.textContent = 'Happy Birthday!';
+        }
+    </script>
+</body>
+</html>
