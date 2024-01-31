@@ -8,32 +8,76 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: aqua;
+            overflow: hidden; /* Hide overflowing fireworks */
+            background-color: black;
         }
+
         h1 {
             font-size: 2rem;
+            color: white;
+            padding-top: 50px; /* Adjust the padding based on your content */
         }
+
         p {
             font-size: 1.5rem;
+            color: white;
+        }
+
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: rgb(237, 12, 12); /* Firework color */
+            border-radius: 50%;
+            opacity: 0;
+            animation: explode 1s infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(10);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <img src="https://github.com/patefkae/test.github.io/blob/main/WhatsApp%20Image%202024-01-31%20at%2010.36.57_176aa97f.jpg?raw=true" alt="Birthday Cake Image" width="300" height="300">
+    <!-- Fireworks container -->
+    <div id="fireworks-container"></div>
+
+    <!-- Birthday Greetings -->
+    <img src="https://github.com/patefkae/test.github.io/blob/main/WhatsApp%20Image%202024-01-31%20at%2010.36.57_176aa97f.jpg?raw=true" alt="Birthday Cake Image" width="400" height="250">
     <h1><font color="red">Happy Birthday! Masa</font></h1>
     <h2><font color="brown">Today is your special day. May this day be filled with love, joy, and happiness.</font></h2>
     <h2><font color="purple">Wishing you a wonderful year ahead. May your dreams come true and may you be surrounded by love and happiness.</font></h2>
-    
-    <script>
-        const today = new Date();
-        const birthday = new Date('[Your Birthday Date]');
-        const birthdayMessage = document.querySelector('p:nth-child(3)');
 
-        if (today.getMonth() === birthday.getMonth() && today.getDate() === birthday.getDate()) {
-            birthdayMessage.textContent = 'Happy Birthday!';
-        } else {
-            birthdayMessage.textContent = 'Happy Birthday!';
+    <!-- JavaScript to create fireworks dynamically -->
+    <script>
+        function createFirework() {
+            const fireworksContainer = document.getElementById('fireworks-container');
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+
+            // Set random position
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+
+            fireworksContainer.appendChild(firework);
+
+            // Remove the firework element after animation completes
+            firework.addEventListener('animationend', () => {
+                firework.remove();
+            });
         }
+
+        // Create fireworks every 2 seconds
+        setInterval(createFirework, 2000);
     </script>
 </body>
 </html>
